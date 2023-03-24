@@ -10,7 +10,7 @@
 
 .parent {
     padding: 16px;
-    background-color: rgba(127, 0, 0, 0.725);
+    background-color: rgba(127, 0, 0, 0.0725);
     margin: 16px auto;
     max-width: 960px;
 }
