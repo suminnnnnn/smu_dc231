@@ -41,16 +41,28 @@
     background-color: black;
     color: white;
     font-weight: 700;
+    container-type: inline-size;
+    container-name: nav;
     .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-block: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-block: 12px;
     }
     &__menuWrapper {
-        display: flex;
-        gap: 24px;
-        align-items: baseline;
+      display: flex;
+      gap: 24px;
+      align-items: baseline;
+    }
+    .lt60px {
+      display: none;
+    }
+    @container nav (width < 42.5rem) {
+      &__menuWrapper {
+      display: none;
+      }
+      .lt680px
+       display: unset;
     }
   }
 
@@ -145,10 +157,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 1.5rem;
-//하... 이게 적용이 안 됨
     }
     h2 {
-      font-size: 1rem
+      font-size: 1rem;
       margin-top: 6px;
       margin: 1rem;
 
