@@ -85,8 +85,8 @@
   width: 100%;
   text-align: center;
   margin-bottom: 50px;
-  font-size: 65px;
-  font-weight: 700;
+  font-size: 60px;
+  font-weight: 600;
   line-height: 1.4;
   color: rgb(0, 0, 0);
 }
@@ -99,6 +99,10 @@
 }
 #hero1-2 .wrapper {
   aspect-ratio: 10/3;
+}
+#hero1-2 .wrapper .enter {
+  margin-top: 100px;
+  margin-bottom: 150px;
 }
 #hero1-2 .wrapper h1 {
   padding-left: 30px;
@@ -113,22 +117,21 @@
 #hero1-2 .wrapper p1 {
   margin-top: 10px;
   margin-left: 30px;
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 800;
   color: rgb(43, 142, 255);
 }
 #hero1-2 .wrapper h2 {
   margin-top: 10px;
   margin-left: 30px;
-  font-size: 40px;
+  font-weight: 500;
+  font-size: 23px;
 }
 
 #hero2 .wrapper .buttons {
   display: flex;
-  width: -moz-fit-content;
-  width: fit-content;
-  justify-content: space-between;
-  gap: 8px;
+  justify-content: center;
+  gap: 6px;
   text-align: center;
 }
 #hero2 .wrapper .buttons .button {
@@ -147,8 +150,9 @@
 #hero3 .main__text {
   text-align: left;
   margin-left: 30px;
+  margin-top: 40px;
   margin-bottom: 120px;
-  font-size: 40px;
+  font-size: 35px;
 }
 #hero3 .main__media {
   margin: 60px;
