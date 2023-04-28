@@ -116,6 +116,9 @@
       margin-inline: auto;
       max-width: 500px;
     }
+    .bottom {
+      margin-bottom: 90px;
+    }
     p1 {
       margin-top: 10px;
       margin-left: 30px;
@@ -138,6 +141,7 @@
       justify-content: center;
       gap: 6px;
       text-align: center;
+      margin-bottom: 90px;
       .button {
         background-color: rgb(43, 43, 43);
         color: white;
