@@ -9,9 +9,10 @@ img {
   display: block;
 }
 .container {
+  position: relative;
   margin-inline: auto;
   padding-inline: 2rem;
-  background-color: darkseagreen;
+  max-width: 960px;
 }
 
 @media (width < 37.5rem) {
@@ -22,11 +23,13 @@ img {
 
 .wrapper {
   padding-block: 2rem;
+  min-height: 100dvh;
 }
 
 #section1 {
   .wrapper {
     display: flex;
+    align-items: flex-start;
     gap: 1rem;
   }
 }
