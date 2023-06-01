@@ -11,6 +11,26 @@ body {
   font-family: system-ui;
   font-size: 1.125rem;
   line-height: 1.5;
+  &::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: aqua;
+    position: fixed;
+    bottom: 200px;
+  }
+}
+
+.animTrigger {
+  position: relative;
+  &::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: fuchsia;
+    position: absolute;
+    top: 75%;
+  }
 }
 
 section {
@@ -56,5 +76,66 @@ section:nth-child(even) {
         transform: scalse(1);
       }
     }
+  }
+}
+
+#section4 {
+  content.animTarget {
+    transition: transform 500ms ease-out,
+      border 500ms ease-out;
+  }
+
+  h2.animTarget {
+    transform: translataeX(-100vw);
+    transition: transform 500ms ease-out;
+  }
+  p.animTarget {
+    transform: translateX(100vw);
+    transition: transform 500ms ease-out;
+  }
+  &.triggered {
+    content.animTarget {
+      background-color: cornflowerblue;
+      border: 0px solid transparent;
+    }
+    h2.animTarget {
+    }
+    p.animTarget {
+    }
+  }
+}
+
+#section5 {
+  .animTarger {
+  }
+  &.triggered {
+    .animTarget {
+      animation: wiggle 2s linear infinite;
+    }
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40% {
+    transform: rotateZ(0);
   }
 }

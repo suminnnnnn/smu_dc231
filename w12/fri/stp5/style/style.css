@@ -12,6 +12,26 @@ body {
   font-size: 1.125rem;
   line-height: 1.5;
 }
+body::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: aqua;
+  position: fixed;
+  bottom: 200px;
+}
+
+.animTrigger {
+  position: relative;
+}
+.animTrigger::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: fuchsia;
+  position: absolute;
+  top: 75%;
+}
 
 section {
   overflow: hidden;
@@ -47,4 +67,47 @@ section:nth-child(even) {
 }
 #section3 .content.triggered .animTarget {
   transform: scalse(1);
+}
+
+#section4 content.animTarget {
+  transition: transform 500ms ease-out, border 500ms ease-out;
+}
+#section4 h2.animTarget {
+  transform: translataeX(-100vw);
+  transition: transform 500ms ease-out;
+}
+#section4 p.animTarget {
+  transform: translateX(100vw);
+  transition: transform 500ms ease-out;
+}
+#section4.triggered content.animTarget {
+  background-color: cornflowerblue;
+  border: 0px solid transparent;
+}
+#section5.triggered .animTarget {
+  animation: wiggle 2s linear infinite;
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40% {
+    transform: rotateZ(0);
+  }
 }
