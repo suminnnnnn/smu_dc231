@@ -1,12 +1,12 @@
 let observerOption = {
   root: null,
-  rootMargin: "0px 0px 200px 0px",
+  rootMargin: "0px 0px -200px 0px",
   threshold: 0.75,
 };
 
 //function observerCallback() {}
-let scrollFunction = (observingTargets) => {
-  observingTargets.ForEach(
+let observerCallback = (observingTargets) => {
+  observingTargets.forEach(
     (eachObservingTarget) => {
       if (eachObservingTarget.isIntersecting) {
         eachObservingTarget.target.classList.add(

@@ -7,6 +7,8 @@ html {
 }
 
 body {
+  width: 100vw;
+  height: 100dvh;
   margin: 0;
   font-family: system-ui;
   font-size: 1.125rem;
@@ -19,6 +21,13 @@ body::after {
   background-color: aqua;
   position: fixed;
   bottom: 200px;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
 
 .animTrigger {
@@ -35,6 +44,7 @@ body::after {
 
 section {
   overflow: hidden;
+  scroll-snap-align: center;
 }
 
 section:nth-child(even) {
@@ -56,34 +66,42 @@ section:nth-child(even) {
 
 #section2 .animTarget {
   transform: scale(0);
+  transition: transform 500ms ease-out;
 }
 #section2.triggered .animTarget {
   transform: scale(1);
 }
 
 #section3 .content .animTarget {
-  transform: scale(0);
+  transform: translateX(100vw);
   transition: transform 500ms ease-out;
 }
 #section3 .content.triggered .animTarget {
-  transform: scalse(1);
+  transform: translateX(0);
 }
 
-#section4 content.animTarget {
-  transition: transform 500ms ease-out, border 500ms ease-out;
+#section4 .content.animTarget {
+  transition: background-color 500ms ease-out, border 500ms ease-out;
 }
 #section4 h2.animTarget {
-  transform: translataeX(-100vw);
+  transform: translateX(-100vw);
   transition: transform 500ms ease-out;
 }
 #section4 p.animTarget {
   transform: translateX(100vw);
   transition: transform 500ms ease-out;
 }
-#section4.triggered content.animTarget {
+#section4.triggered .content.animTarget {
   background-color: cornflowerblue;
   border: 0px solid transparent;
 }
+#section4.triggered h2.animTarget {
+  transform: translateX(0);
+}
+#section4.triggered p.animTarget {
+  transform: translateX(0);
+}
+
 #section5.triggered .animTarget {
   animation: wiggle 2s linear infinite;
 }
@@ -107,7 +125,7 @@ section:nth-child(even) {
   35% {
     transform: rotateZ(-4deg);
   }
-  40% {
+  40%, 100% {
     transform: rotateZ(0);
   }
 }
