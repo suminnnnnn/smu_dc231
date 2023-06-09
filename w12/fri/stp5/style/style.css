@@ -7,6 +7,7 @@ html {
 }
 
 body {
+  overflow-y: hidden;
   scroll-snap-type: y mandatory;
   width: 100vw;
   height: 100dvh;
