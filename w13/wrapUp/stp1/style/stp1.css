@@ -112,10 +112,98 @@ aside a {
 .progressBar .indicator {
   position: absolute;
   inset: 0;
-  transform-origin: 0;
   background-color: blue;
+  transform-origin: left;
 }
 
 footer .wrapper {
   min-height: max(100dvh, 2rem);
+}
+
+@media (width < 1080px) {
+  .stickyWrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+  main {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  aside {
+    grid-column: 1;
+    grid-row: 3;
+    padding-inline: unset;
+    padding-block: 16px;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 0 0 1rem 1rem;
+    position: sticky;
+    top: 1rem;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  aside::-webkit-scrollbar {
+    display: none;
+  }
+  aside ol {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 48px;
+  }
+  aside ol li {
+    font-weight: 600;
+    align-items: center;
+    gap: 12px;
+    text-transform: capitalize;
+    color: white;
+    justify-content: center;
+    display: flex;
+  }
+  aside ol li::before {
+    margin-top: 2px;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border-radius: 999999999px;
+    border: 0.125rem solid white;
+  }
+  aside .progressBar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+@media (width < 1080px) and (width < 960px) {
+  aside {
+    grid-column: 1;
+    grid-row: 3;
+    padding-inline: unset;
+    padding-block: 16px;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 0 0 1rem 1rem;
+    position: sticky;
+    top: 1rem;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  aside::-webkit-scrollbar {
+    display: none;
+  }
+  aside ol {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 48px;
+    margin-inline: 2rem;
+  }
+  aside ol ::before, aside ol ::after {
+    content: "";
+    flex-shrink: 0;
+    width: 2rem;
+  }
 }

@@ -1,4 +1,20 @@
+@import "theme.dark.css"
+  (prefers-color-scheme: dark);
+@import "theme.light.css"
+  (prefers-color-scheme: light);
+
 $min-height: 2rem;
+$wrapper-padding-inline: 2rem;
+$min-height: 2rem;
+$progressBar-height: 1rem;
+$bg: var(--bg);
+$bgVariant: var(--bgVariant);
+$txt: var(--txt);
+$surface-transparent: var(--surface-transparent);
+$surface: var(--surface);
+$onSurface: var(--onSurface);
+$accent: var(--accent);
+
 *,
 *::before,
 *::after {
@@ -19,13 +35,16 @@ body {
   font-family: system-ui;
   font-size: 1.125rem;
   line-height: 1.5;
+  background-color: $bg;
+  color: $txt;
 }
 
 .wrapper {
-  $padding-inline: 2rem;
-  max-width: calc(80ch + 2 * $padding-inline);
+  max-width: calc(
+    80ch + 2 * $wrapper-padding-inline
+  );
   margin-inline: auto;
-  padding-inline: $padding-inline;
+  padding-inline: $wrapper-padding-inline;
 
   min-height: max(50dvh, $min-height);
   display: flex;
@@ -40,7 +59,7 @@ header {
 }
 
 section:nth-of-type(odd) {
-  background-color: peachpuff;
+  background-color: $bgVariant;
 }
 
 .stickyWrapper {
@@ -61,7 +80,7 @@ aside {
   grid-column: 1;
   grid-row: 1;
   padding-inline: 1rem 1.5rem;
-  background-color: rgba(0 0 0 /50%);
+  background-color: $surface-transparent;
   backdrop-filter: blur(0.25rem);
   width: fit-content;
   height: max(100dvh, $min-height);
@@ -84,7 +103,7 @@ aside {
       align-items: center;
       gap: 12px;
       text-transform: capitalize;
-      color: white;
+      color: $onSurface;
       justify-content: center;
       display: flex;
 
@@ -95,6 +114,12 @@ aside {
         height: 1rem;
         border-radius: 999999999px;
         border: 0.125rem solid white;
+      }
+      &:hover {
+        color: $accent;
+        &::before {
+          border-color: $accent;
+        }
       }
     }
   }
@@ -111,20 +136,122 @@ aside {
   grid-column: 1 / span 2;
   grid-row: 1;
   width: 100%;
-  height: 1rem;
-  background-color: rgba(64, 64, 64);
+  height: $progressBar-height;
+  background-color: $surface;
 
   .indicator {
     position: absolute;
     inset: 0;
-    transform-origin: 0;
-    //transform: scaleX(100%);
-    background-color: blue;
+    background-color: $accent;
+    //transform: scaleX(50%);
+    transform-origin: left;
   }
 }
 
 footer {
   .wrapper {
     min-height: max(100dvh, $min-height);
+  }
+}
+
+@media (width<1080px) {
+  .stickyWrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  main {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  aside {
+    grid-column: 1;
+    grid-row: 3;
+    padding-inline: unset;
+    padding-block: 16px;
+    width: 100%;
+    height: fit-content;
+    border-radius: 0 0 1rem 1rem;
+    position: sticky;
+    top: $progressBar-height;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    ol {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 48px;
+
+      li {
+        font-weight: 600;
+        align-items: center;
+        gap: 12px;
+        text-transform: capitalize;
+        color: white;
+        justify-content: center;
+        display: flex;
+        transition: color 150ms ease-out;
+
+        &::before {
+          margin-top: 2px;
+          content: "";
+          width: 1rem;
+          height: 1rem;
+          border-radius: 999999999px;
+          transition: border-color 150ms ease-out;
+          border: 0.125rem solid $onSurface;
+        }
+      }
+    }
+
+    .progressBar {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+
+  @media (width<960px) {
+    aside {
+      grid-column: 1;
+      grid-row: 3;
+      padding-inline: unset;
+      padding-block: 16px;
+      width: 100%;
+      height: fit-content;
+      border-radius: 0 0 1rem 1rem;
+      position: sticky;
+      top: $progressBar-height;
+      overflow-x: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      ol {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 48px;
+        a:first-of-type li {
+          margin-left: $wrapper-padding-iniline;
+        }
+        a:last-of-type li {
+          margin-right: $wrapper-padding-inline;
+        }
+      }
+    }
+  }
+}
+@media (width < 59.1875rem) {
+  aside {
+    ol {
+      justify-content: flex-start;
+    }
   }
 }
