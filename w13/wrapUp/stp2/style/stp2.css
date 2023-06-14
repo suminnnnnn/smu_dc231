@@ -97,7 +97,7 @@ aside ol li::before {
   content: "";
   width: 1rem;
   height: 1rem;
-  transition: border-color 150ms easae-out;
+  transition: border-color 150ms easae-out, background-color 150ms easae-out;
   border-radius: 999999999px;
   border: 0.125rem solid white;
 }
@@ -106,6 +106,13 @@ aside ol li:hover {
 }
 aside ol li:hover::before {
   border-color: var(--accent);
+}
+aside ol li.pressed {
+  color: var(--accent);
+}
+aside ol li.pressed::before {
+  border-color: var(--accent);
+  background-color: var(--accent);
 }
 aside a {
   text-decoration: none;
@@ -125,6 +132,7 @@ aside a {
   position: absolute;
   inset: 0;
   background-color: var(--accent);
+  transform: scaleX(0%);
   transform-origin: left;
 }
 
