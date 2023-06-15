@@ -1,6 +1,16 @@
 @charset "UTF-8";
 @import "theme.dark.css" (prefers-color-scheme: dark);
 @import "theme.light.css" (prefers-color-scheme: light);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 header .title {
   background-image: url(img/픽셀레이트.jpg);
   background-size: 900px 600px;
@@ -13,6 +23,9 @@ header .title {
 header .writer {
   padding-top: 100px;
   padding-bottom: 30px;
+}
+header .writer a:hover {
+  background-color: blue;
 }
 header .bg {
   /*max-width: calc(
@@ -35,6 +48,26 @@ header .bg:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.animTrigger {
+  position: relative;
+}
+.animTrigger::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: fuchsia;
+  position: absolute;
+  top: 75%;
+}
+
+section {
+  scroll-snap-align: center;
+}
+
+section:nth-child(even) {
+  background-color: rgba(51, 53, 125, 0.8);
+}
+
 main {
   padding-inline: 1rem 1rem;
   min-height: max(50dvh, 2rem);
@@ -43,12 +76,6 @@ main {
   width: min(90ch, 100% - 4rem);
   margin-inline: auto;
   font-family: system-ui;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 .hide {
@@ -63,7 +90,8 @@ html {
 body {
   margin: 0;
   font-family: system-ui;
-  font-size: 1.125rem;
+  font-size: 15px;
+  font-weight: 400;
   line-height: 1.5;
   background-color: var(--bg);
   color: var(--txt);
@@ -278,5 +306,28 @@ footer .wrapper {
 @media (width < 59.1875rem) {
   aside ol {
     justify-content: flex-start;
+  }
+}
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
   }
 }

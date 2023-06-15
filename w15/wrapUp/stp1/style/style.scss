@@ -1,10 +1,53 @@
-// $wrapper-padding-inline: 2rem;
-// $min-height: 2rem;
-// * {
+$wrapper-padding-inline: 2rem;
+$min-height: 2rem;
+
+@import "theme.dark.css"
+  (prefers-color-scheme: dark);
+@import "theme.light.css"
+  (prefers-color-scheme: light);
+
+$wrapper-padding-inline: 2rem;
+$min-height: 2rem;
+$progressBar-height: 1rem;
+
+$bg: var(--bg);
+$bgVariant: var(--bgVariant);
+$txt: var(--txt);
+$surface-transparent: var(--surface-transparent);
+$surface: var(--surface);
+$onSurface: var(--onSurface);
+$accent: var(--accent);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  //   margin: 0;
+  //   padding: 0;
+  box-sizing: border-box;
+}
+
+// /*body {
 //   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-// }
+//   font-size: 1.125rem;
+//   line-height: 1.5;
+// }*/
+
+$wrapper-padding-inline: 2rem;
+$min-height: 2rem;
+$progressBar-height: 1rem;
+
+$bg: var(--bg);
+$bgVariant: var(--bgVariant);
+$txt: var(--txt);
+$surface-transparent: var(--surface-transparent);
+$surface: var(--surface);
+$onSurface: var(--onSurface);
+$accent: var(--accent);
+
 header {
   .title {
     background-image: url(img/픽셀레이트.jpg);
@@ -18,6 +61,9 @@ header {
   .writer {
     padding-top: 100px;
     padding-bottom: 30px;
+    a:hover {
+      background-color: blue;
+    }
   }
 
   .bg {
@@ -43,23 +89,37 @@ header {
   }
 }
 
-// /*body {
-//   margin: 0;
-//   font-size: 1.125rem;
-//   line-height: 1.5;
-// }*/
+.animTrigger {
+  position: relative;
+  &::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: fuchsia;
+    position: absolute;
+    top: 75%;
+  }
+}
+section {
+  // overflow: hidden;
+  scroll-snap-align: center;
+}
+section:nth-child(even) {
+  background-color: rgba(51, 53, 125, 80%);
+}
 
-$wrapper-padding-inline: 2rem;
-$min-height: 2rem;
-$progressBar-height: 1rem;
-
-$bg: var(--bg);
-$bgVariant: var(--bgVariant);
-$txt: var(--txt);
-$surface-transparent: var(--surface-transparent);
-$surface: var(--surface);
-$onSurface: var(--onSurface);
-$accent: var(--accent);
+// #lemon1 {
+//   .animTarget {
+//     font-size: 20px;
+//     font-weight: 800;
+//     margin-top: 100px;
+//     margin-bottom: 70px;
+//     transition: font-size 1s ease;
+//   }
+//   .animTarget.triggered {
+//     font-size: 27px;
+//   }
+// }
 
 main {
   padding-inline: 1rem 1rem;
@@ -71,29 +131,6 @@ main {
   font-family: system-ui;
   //font-family: "Noto Serif KR", serif;
   //font-family: "Noto Sans KR", sans-serif;
-}
-
-@import "theme.dark.css"
-  (prefers-color-scheme: dark);
-@import "theme.light.css"
-  (prefers-color-scheme: light);
-
-$wrapper-padding-inline: 2rem;
-$min-height: 2rem;
-$progressBar-height: 1rem;
-
-$bg: var(--bg);
-$bgVariant: var(--bgVariant);
-$txt: var(--txt);
-$surface-transparent: var(--surface-transparent);
-$surface: var(--surface);
-$onSurface: var(--onSurface);
-$accent: var(--accent);
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 .hide {
@@ -108,7 +145,8 @@ html {
 body {
   margin: 0;
   font-family: system-ui;
-  font-size: 1.125rem;
+  font-size: 15px;
+  font-weight: 400;
   line-height: 1.5;
   background-color: $bg;
   color: $txt;
@@ -341,5 +379,31 @@ footer {
     ol {
       justify-content: flex-start;
     }
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
   }
 }

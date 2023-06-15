@@ -30,6 +30,9 @@ let elems = document.querySelectorAll(
   ".animTrigger"
 );
 console.log(elems);
+elems.forEach((elem) => {
+  observer.observe(elem);
+});
 // // 하드코딩
 // observer.observer(elems[0]);
 // observer.observer(elems[0]);
@@ -41,6 +44,6 @@ console.log(elems);
 // observer.observe(elems[idx]);
 // }
 // // 있어보이는 토딩
-elems.forEach((eachElem) => {
-  observer.observe(eachElem);
-});
+// elems.forEach((eachElem) => {
+//   observer.observe(eachElem);
+// });
