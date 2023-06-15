@@ -43,7 +43,7 @@ elems.forEach((elem) => {
 // for (left idx = 0; idx < elems.lenght; idx++) {
 // observer.observe(elems[idx]);
 // }
-// // 있어보이는 토딩
+// // 있어보이는 코딩
 // elems.forEach((eachElem) => {
 //   observer.observe(eachElem);
 // });
