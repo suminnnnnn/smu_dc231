@@ -28,9 +28,6 @@ header .writer a:hover {
   background-color: blue;
 }
 header .bg {
-  /*max-width: calc(
-    80ch + 2 * $wrapper-padding-inline
-  );*/
   color: white;
   margin-inline: auto;
   padding-inline: 60px;
@@ -48,24 +45,19 @@ header .bg:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.animTrigger {
-  position: relative;
+.main__media {
+  margin-top: 100px;
 }
-.animTrigger::after {
-  content: "";
-  height: 1px;
+.main__media img {
   width: 100%;
-  background-color: fuchsia;
-  position: absolute;
-  top: 75%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 section {
+  overflow: hidden;
   scroll-snap-align: center;
-}
-
-section:nth-child(even) {
-  background-color: rgba(51, 53, 125, 0.8);
 }
 
 main {
@@ -98,11 +90,9 @@ body {
 }
 
 .wrapper {
-  margin-top: 40px;
-  max-width: calc(80ch + 4rem);
+  width: min(60ch, 100% - 4rem);
+  min-height: max(50rem, 100dvh);
   margin-inline: auto;
-  padding-inline: 2rem;
-  min-height: max(50dvh, 2rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -112,10 +102,6 @@ header {
   text-align: center;
   text-wrap: balance;
   word-break: keep-all;
-}
-
-section:nth-of-type(odd) {
-  background-color: var(--bgVariant);
 }
 
 .stickyWrapper {
@@ -129,6 +115,14 @@ main {
   z-index: 1;
   grid-column: 1/span 2;
   grid-row: 1;
+}
+
+#section_3 .animTarget {
+  transform: scale(0);
+  transition: transform 500ms ease-out;
+}
+#section_3 .animTarget.Triggered {
+  transform: scale(1);
 }
 
 aside {
@@ -214,6 +208,17 @@ footer .wrapper {
   min-height: max(100dvh, 2rem);
 }
 
+@keyframes swing {
+  0% {
+    transform: rotateZ(0);
+  }
+  50% {
+    transform: rotateZ(15deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
 @media (width < 1080px) {
   .stickyWrapper {
     grid-template-columns: 1fr;
@@ -330,4 +335,19 @@ footer .wrapper {
   40%, 100% {
     transform: rotateZ(0);
   }
+}
+#section2 .animTarget {
+  transform: scale 0;
+  transition: transform 500ms ease-in-out;
+}
+#section2.triggered .animTarget {
+  transform: scale(1);
+}
+
+#section3 .animTarget {
+  transform: scale 0;
+  transition: transform 500ms ease-in-out;
+}
+#section3.triggered .animTarget {
+  transform: scale(1);
 }

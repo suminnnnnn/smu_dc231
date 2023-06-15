@@ -30,20 +30,6 @@ let elems = document.querySelectorAll(
   ".animTrigger"
 );
 console.log(elems);
-elems.forEach((elem) => {
-  observer.observe(elem);
+elems.forEach((eachElem) => {
+  observer.observe(eachElem);
 });
-// // 하드코딩
-// observer.observer(elems[0]);
-// observer.observer(elems[0]);
-// observer.observer(elems[0]);
-// observer.observer(elems[0]);
-// ...
-// // 조금 똑똑한 코딩
-// for (left idx = 0; idx < elems.lenght; idx++) {
-// observer.observe(elems[idx]);
-// }
-// // 있어보이는 코딩
-// elems.forEach((eachElem) => {
-//   observer.observe(eachElem);
-// });
