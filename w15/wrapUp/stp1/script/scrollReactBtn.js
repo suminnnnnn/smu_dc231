@@ -20,7 +20,7 @@ setPageBtnMap();
 
 let lastBtn;
 
-const margin = ["0px", "-70%"];
+const margin = ["0px", "-90%"];
 
 const visualizingMargin = () => {
   let topMargin = document.createElement("div");

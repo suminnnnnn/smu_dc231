@@ -1,4 +1,4 @@
-const_btns =
+const btns =
   document.querySelectorAll("aside>ol>a");
 console.log(btns);
 let lastBtns;
